@@ -7,20 +7,30 @@
   (fn [_ _]
     {}))
 
+(rf/reg-event-db
+ :panel/toggle
+ (fn [db [_ id]]
+   (update-in db [:panels id] not)))
+
+(rf/reg-sub
+ :panel/state
+ (fn [db [_ id]]
+   (get-in db [:panels id])))
+
 (defn example-component []
   (let [s (reagent/atom 0)]
     (js/setInterval #(swap! s inc) 1000)
     (fn []
       [:div @s])))
 
-(defn panel [title child]
+(defn panel [id title child]
   (let [s (reagent/atom {:open false})]
-    (fn [title child]
-      (let [open? (:open @s)
+    (fn [id title child]
+      (let [open? @(rf/subscribe [:panel/state id])
             child-height (:child-height @s)]
         [:div
          [:div
-          {:on-click #(swap! s update :open not)
+          {:on-click #(rf/dispatch [:panel/toggle id])
            :style {:background-color "#ddd"
                    :padding "0 1em"}}
           [:div
@@ -43,7 +53,7 @@
 
 (defn ui []
   [:div
-   [panel "Example Component" [example-component]]])
+   [panel :ex-1 "Example Component" [example-component]]])
 
 (when-some [el (js/document.getElementById "collapsible-panel--student")]
   (defonce _init (rf/dispatch-sync [:initialize]))

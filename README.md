@@ -1,44 +1,41 @@
-# building-components
+# Building Re-Frame Components
 
-FIXME: description
+This repository is meant to accompany the [Building Re-frame Components](https://purelyfunctional.tv/courses/building-re-frame-components/) course at [PurelyFunctional.tv](https://purelyfunctional.tv/)
 
-## Installation
+The repo contains all of the code you need to live-edit the components in the course.
 
-Download from http://example.com/FIXME.
+## Overview
 
-## Usage
+Clone this repo
 
-FIXME: explanation
+```bash
+$CMD git clone git@github.com:lispcast/building-re-frame-components.git
+```
 
-    $ java -jar building-components-0.1.0-standalone.jar [args]
+Enter into the directory
 
-## Options
+```bash
+$CMD cd building-re-frame-components
+```
 
-FIXME: listing of options this app accepts.
+Now run Figwheel
 
-## Examples
+```bash
+$CMD lein figwheel
+```
 
-...
+Open your browser to: http://127.0.0.1:3449
 
-### Bugs
+Start editing the code in `src/`.
 
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+I like to have my editor open alongside my browser so I can see changes as they are reloaded.
 
 ## License
 
-Copyright © 2020 FIXME
+[![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)
 
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
+To the extent possible under law, the person who associated CC0 with
+this work has waived all copyright and related or neighboring rights
+to the code in this repository.
 
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.
+See the `LICENSE` file for more information.
